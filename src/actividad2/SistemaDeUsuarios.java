@@ -1,14 +1,22 @@
 package actividad2;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class SistemaDeUsuarios {
 
-    static ArrayList<Usuario> usuarios = new ArrayList<>();
+    static Usuario[] usuarios = new Usuario[10];
+    static int cantidadUsuarios = 0;
     static Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
+        usuarios[cantidadUsuarios] = new Usuario("Camila", "Chiarelli", "Argentina", "cami@gmail.com", "1234", "Usuario");
+        cantidadUsuarios++;
+
+        usuarios[cantidadUsuarios] = new Admin("Agustina", "Perez", "Uruguay", "agus@gmail.com", "abcd", "Total", "Si");
+        cantidadUsuarios++;
+
+        usuarios[cantidadUsuarios] = new Tester("Mateo", "Sosa", "Chile", "mate@gmail.com", "aeiou", "Backend");
+        cantidadUsuarios++;
 
         int opcion = 0;
 
@@ -53,8 +61,9 @@ public class Main {
             return;
         }
 
-        Usuario nuevo = new Usuario(nombre, apellido, paisdenacimiento, email, contraseña, "Administrador");
-        usuarios.add(nuevo);
+        Usuario nuevo = new Usuario(nombre, apellido, paisdenacimiento, email, contraseña, "Usuario");
+        usuarios[cantidadUsuarios] = nuevo;
+        cantidadUsuarios++;
         System.out.println("Usuario registrado con exito.");
     }
 
@@ -62,23 +71,22 @@ public class Main {
         System.out.println("Ingrese email: ");
         String emailingresado = scan.nextLine();
         System.out.println("Ingrese contraseña: ");
-        String contrasenaingresada = scan.nextLine();
+        String contraseñaingresada = scan.nextLine();
 
         Usuario encontrado = buscarUsuario(emailingresado);
 
         if (encontrado == null) {
             System.out.println("Usuario no encontrado.");
-        } else if (!encontrado.contraseña.equals(contrasenaingresada)) {
+        } else if (!encontrado.getContraseña().equals(contraseñaingresada)) {
             System.out.println("Contraseña incorrecta.");
         } else {
-            System.out.println("Login exitoso, bienvenido " + encontrado.nombre + "!");
+            System.out.println("Login exitoso, bienvenido " + encontrado.getNombre() + "!");
         }
     }
-
     static Usuario buscarUsuario(String email) {
-        for (Usuario u : usuarios) {
-            if (u.email.equals(email)) {
-                return u;
+        for (int i = 0; i < cantidadUsuarios; i++) {
+            if (usuarios[i].getEmail().equals(email)) {
+                return usuarios[i];
             }
         }
         return null;
