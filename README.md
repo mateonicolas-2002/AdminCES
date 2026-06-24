@@ -61,4 +61,4 @@ Te lleva a "Iniciar sesión administrador"
 
 ## Diagrama de clases UML
 
-![Diagrama UML](imagenes/UML2.drawio.png)
+![Diagrama UML](imagenes/UML 2.drawio.png)
