@@ -59,4 +59,6 @@ Te lleva a "Reiniciar contraseña"
 -Ya tengo cuenta!
 Te lleva a "Iniciar sesión administrador"
 ## Diagrama de clases UML
+![Diagrama UML](imagenes/UML4.png)
+## Diagrama de clases UML
 ![Diagrama UML](imagenes/UML 2.drawio.png)
