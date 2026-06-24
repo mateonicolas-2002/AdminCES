@@ -25,5 +25,8 @@ public class Admin extends Usuario {
         this.nivelAcceso = nivelAcceso;
         this.puedeEliminarUsuarios = puedeEliminarUsuarios;
     }
-
+    @Override
+    public void mostrarInfo() {
+        System.out.println("ADMIN - " + getNombre() + " - Puede eliminar: " + getPuedeEliminarUsuarios());
+    }
 }

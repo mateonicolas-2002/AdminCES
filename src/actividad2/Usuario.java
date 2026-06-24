@@ -1,6 +1,6 @@
 package actividad2;
 
-public class Usuario {
+public class Usuario implements Mostrable {
     private String nombre;
     private String apellido;
     private String paisdenacimiento;
@@ -63,5 +63,8 @@ public class Usuario {
 
     public void setPerfil(String perfil) {
         this.perfil = perfil;
+    }
+    public void mostrarInfo() {
+        System.out.println("Usuario - " + getNombre() + " - " + getEmail());
     }
 }

@@ -15,6 +15,11 @@ public class Tester extends Usuario {
         super(nombre, apellido, paisdenacimiento, email, contraseña,"Tester");
         this.nivelAcceso = nivelAcceso;
     }
+    @Override
+    public void mostrarInfo(){
+        System.out.println("TESTER - " + getNombre() + " - Area: " + getNivelAcceso());
+    }
+
 
 
 
